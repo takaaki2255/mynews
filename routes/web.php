@@ -36,8 +36,8 @@ admin/profile/create にアクセスしたら ProfileController の add Action �
 admin/profile/edit にアクセスしたら 
 ProfileController の edit Action に割り当てるように設定してください
 */
-use app\Http\Contrllers\Admin\ProfileController;
-Route::controller(ProfileController::class)->prefix('admin')->group(function(){
-    Route::get('admin/profile/create','add');
-    Route::get('admin/profile/edit','edit');
+use App\Http\Controllers\Admin\ProfileController;
+Route::controller(ProfileController::class)->prefix('admin')->group(function() {
+    Route::get('profile/create','add');
+    Route::get('profile/edit','edit');
 });

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class profileController extends Controller
+class ProfileController extends Controller
 {
     //
      public function add()
@@ -28,4 +28,3 @@ class profileController extends Controller
         return redirect('admin/profile/edit');
     }
 }
-
