@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    <scrpt src="{{ secure_asset('js/app.js') }}" defer></scrpt>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
