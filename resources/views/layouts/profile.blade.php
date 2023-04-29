@@ -46,7 +46,7 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav">
-                                <!-- Authentication Links -->
+                                <!-- Authentication Links  課題内容追加-->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
@@ -83,3 +83,4 @@
         </div>
     </body>
 </html>
+

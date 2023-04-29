@@ -28,6 +28,7 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
     Route::get('news/create', 'add')->middleware('auth');
 });
 
+// 課題内容追加 
 use App\Http\Controllers\Admin\ProfileController;
 Route::controller(ProfileController::class)->prefix('admin')->group(function(){
     Route::get('profile/create','add')->middleware('auth');
