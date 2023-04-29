@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    //以下に追記
+   
     public function add()
     {
         return view('admin.news.create');
     }
 }
-
