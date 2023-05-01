@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>laravel</title>
-    </head>
-    <body>
 @extends('layouts.profile')
 @section('title', 'profile')
 
@@ -16,7 +6,8 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>Myプロフィール</h2>
-                <form action="{{ route('admin.profile.create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.profile.create') }}" 
+                method="post" enctype="multipart/form-data">
                         
                         @if (count($errors) > 0)
                         <ul>
@@ -26,29 +17,34 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.name') }}</label>
+                        <label class="col-md-2">名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" 
+                            name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.gender') }}</label>
+                        <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            <input type="radio" class="" name="gender" value="男性"> 男性
-                            <input type="radio" class="" name="gender" value="女性" checked> 女性
-                            <input type="radio" class="" name="gender" value="その他"> その他
+                            <label><input type="radio" 
+                            name="gender" value="male">男性</label>
+                            <label><input type="radio" 
+                            name="gender" value="female">女性</label>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.hobby') }}</label>
+                        <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control"
+                            name="hobby" value="{{ old('hobby') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.introduction') }}</label>
+                        <label class="col-md-2">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" 
+                            name="introduction" 
+                            rows="10">{{ old('introduction') }}</textarea>
                         </div>
                     </div>
                     @csrf
@@ -58,6 +54,3 @@
         </div>
     </div>
 @endsection
-    </body>
-</html>
-

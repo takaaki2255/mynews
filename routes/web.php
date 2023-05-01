@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,23 +17,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'],function() {
+Route::group(['prefix' => 'admin'],function () {
     Route::get('news/create', 'Admin\NewsContreoller@add')->middleware('auth');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class,'index'])->name('home');
 
-use App\Http\Controllers\Admin\NewsController;
-Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+Route::controller(NewsController::class)
+    ->prefix('admin')
+    ->name('admin.')->middleware('auth')->group(function () {
     Route::get('news/create', 'add')->name('news.add');
     Route::post('news/create', 'create')->name('news.create');
 });
 
 // 課題内容追加 
-use App\Http\Controllers\Admin\ProfileController;
-Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function(){
+Route::controller(ProfileController::class)
+    ->prefix('admin')
+    ->name('admin.')->middleware('auth')->group(function () {
     Route::get('profile/create','add')->name('profile.add');
     Route::post('profile/create', 'create')->name('profile.create');
     
