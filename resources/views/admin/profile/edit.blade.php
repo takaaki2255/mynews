@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>laravel</title>
-    </head>
-    <body>
 @extends('layouts.profile')
-@section('title', 'profile')
+@section('title', 'ニュースの編集')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Myプロフィール</h2>
-                <form action="{{ route('admin.profile.edit') }}" method="post" enctype="multipart/form-data">
-                        
-                        @if (count($errors) > 0)
+                <h2>ニュース編集</h2>
+                <form action="{{ route('admin.profile.update') }}" 
+                method="post" enctype="multipart/form-data">
+                    @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
                                 <li>{{ $e }}</li>
@@ -26,38 +16,51 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.name') }}</label>
+                        <label class="col-md-2" for="name">名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" 
+                            name="name" value="{{ $profile_form->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.gender') }}</label>
+                        <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="radio" class="" name="gender" value="男性"> 男性
-                            <input type="radio" class="" name="gender" value="女性" checked> 女性
-                            <input type="radio" class="" name="gender" value="その他"> その他
+                            <label><input type="radio" 
+                            name="gender" value="{{ $profile_form->gender　
+                            ,"male" }}" ,>男性</label>
+                            <label><input type="radio" 
+                            name="gender" value="{{ $profile_form->gender 
+                            ,"female"}}">女性</label>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.hobby') }}</label>
+                        <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control"
+                            name="hobby" value="{{ $profile_form->hobby }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">{{ __('messages.introduction') }}</label>
+                        <label class="col-md-2" 
+                        for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" 
+                            name="introduction" 
+                            rows="10">{{ $profile_form
+                            ->introduction }}</textarea>
                         </div>
                     </div>
-                    @csrf
-                    <input type="submit" class="btn btn-primary" value="更新">
-                    </form>
+                    <div class="form-group row">
+                        <div class="col-md-10">
+                            <input type="hidden" name="id" 
+                            value="{{ $profile_form->id }}">
+                            @csrf
+                            <input type="submit" class="btn btn-primary" 
+                            value="更新">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 @endsection
-    </body>
-</html>
-

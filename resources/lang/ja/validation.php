@@ -171,6 +171,8 @@ return [
         'name' => '名前',
         'gender' => '性別',
         'hobby' => '趣味',
-        'introduction' => '自己紹介'
+        'introduction' => '自己紹介',
+        'male' => '男',
+        'female' => '女'
         ],
 ];
