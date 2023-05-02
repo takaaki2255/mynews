@@ -32,7 +32,6 @@ Route::controller(NewsController::class)
     Route::post('news/create', 'create')->name('news.create');
 });
 
-// 課題内容追加 
 Route::controller(ProfileController::class)
     ->prefix('admin')
     ->name('admin.')->middleware('auth')->group(function () {
@@ -49,5 +48,7 @@ Route::controller(NewsController::class)->prefix('admin')
     Route::get('news/create', 'add')->name('news.add');
     Route::post('news/create', 'create')->name('news.create');
     Route::get('news', 'index')->name('news.index');
+    Route::get('news/edit', 'edit')->name('news.edit');
+    Route::post('news/edit', 'update')->name('news.update');
+    Route::get('news/delete', 'delete')->name('news.delete');
 });
-
