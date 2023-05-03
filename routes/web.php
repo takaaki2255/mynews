@@ -2,6 +2,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\NewsController as PublicNewsController;
+use App\Http\Controllers\ProfileController as PublicProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +53,6 @@ Route::controller(NewsController::class)->prefix('admin')
     Route::post('news/edit', 'update')->name('news.update');
     Route::get('news/delete', 'delete')->name('news.delete');
 });
+
+Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
+Route::get('/profile', [PublicProfileController::class, 'index'])->name('profile.index');
