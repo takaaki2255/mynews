@@ -16,15 +16,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="title p-2">
+                            <p class="title">
                                 {{ Str::limit($headline->gender, 70) }}</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="title p-2">
+                            <p class="title">
                                 {{ Str::limit($headline->hobby, 70) }}</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="body mx-auto">
+                            <p class="title">
                                 {{ Str::limit($headline->introduction, 650) }}</p>
                         </div>
                     </div>
@@ -42,13 +42,13 @@
                                     {{ $post->updated_at
                                     ->format('Y年m月d日') }}</div>
                                 <div class="title">
-                                    {{ Str::limit($post->name, 150) }}
+                                    {{ Str::limit($post->name, 20) }}
                                 </div>
                                  <div class="title">
-                                    {{ Str::limit($post->gender, 150) }}
+                                    {{ Str::limit($post->gender, 10) }}
                                 </div>
-                                 <div class="title">
-                                    {{ Str::limit($post->hobby, 150) }}
+                                 <div class="stitle">
+                                    {{ Str::limit($post->hobby, 100) }}
                                 </div>
                                 <div class="body mt-3">
                                     {{ Str::limit($post->introduction, 1500) }}
