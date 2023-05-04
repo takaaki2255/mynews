@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+             <p>課題のコメントを追加しました。</p>
         @endif
         <hr color="#c0c0c0">
         <div class="row">
